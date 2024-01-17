@@ -247,7 +247,6 @@ _randombytes_linux_getrandom(void *const buf, const size_t size)
 
     do
     {
-        sodium_misuse();
         readnb = syscall(SYS_getrandom, buf, (int)size, 0);
     } while (readnb < 0 && (errno == EINTR || errno == EAGAIN));
 
